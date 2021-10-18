@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="D:\projects\ProyekWebMVC\MvcMovie\wwwroot\css\site.css">
+<section>
+    <div class="divisi">
+    <h2>Pilih Kategori Tempat Pariwisata</h2>
+    <ul class="baris">
+    @foreach (var item in Model)
+        {    
+            <li class="kolom">@item.Name</li>
+        }
+    </ul>
+    </div>
+    <img src="https://cdn.idntimes.com/content-images/post/20200226/collage-e5930e409155af69215bf1de0eaa51e7_600x400.png" alt="kategori">
+</section>

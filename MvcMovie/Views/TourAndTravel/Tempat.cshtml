@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Tempat>
+@{
+    ViewData["Title"] = "Tempat Wisata";
+}
+        <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">Kota </th>
+                <th scope="col">Tempat Wisata</th>
+            </tr>
+            </thead>
+    @foreach (var item in Model)
+    {
+            <tbody>
+            <tr>
+                <td>@item.Kota</td>
+                <td>@item.NamaTempat</td>    
+                <td><a asp-controller="TourAndTravel" asp-action="Show" asp-route-id="@item.Id">Details</a> </td>
+            </tr>
+            </tbody>
+    }
+        </table>

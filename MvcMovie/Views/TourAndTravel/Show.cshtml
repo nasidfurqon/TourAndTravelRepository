@@ -1,0 +1,18 @@
+﻿@model Destination
+@{
+    ViewData["Title"] = "Show Destination";
+}
+<table class="table table-hover">
+    <tr>
+      <td >Kategori:</td>
+      <td >@Html.DisplayFor(modelItem => Model.CategoryId)</td>
+    </tr>
+    <tr>
+      <td>Alamat:</td>
+      <td>@Html.DisplayFor(modelItem => Model.Place)</td>
+    </tr>
+    <tr>
+      <td>Harga Masuk:</td>
+      <td>Rp.@Math.Round(@Model.Price)</td>
+    </tr>
+</table>

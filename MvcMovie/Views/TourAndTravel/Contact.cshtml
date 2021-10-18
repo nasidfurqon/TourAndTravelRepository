@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Contact>
+@{
+    ViewData["Title"] = "Contact Person";
+}
+<link rel="stylesheet" href="D:\projects\ProyekWebMVC\MvcMovie\wwwroot\css\site.css">
+    <h2>Kontak Whatsapp</h2>
+    <div class="divisi">
+    <ul class="baris">
+        @foreach (var item in Model)
+        {    
+            <li class="kolom">@item.Name - @item.NumbePhone</li>
+        }
+    </ul>
+    </div>
