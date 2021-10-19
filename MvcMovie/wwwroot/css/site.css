@@ -77,7 +77,7 @@ section{
 
 .deskripsi {
   margin-top: 100px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 .deskripsi .paragraf {
   font-size: 20px ;
@@ -95,6 +95,7 @@ font-size: 45px;
 width: 100%;
 line-height: 50px;
 }
+
 
 .divisi .baris .kolom{
   font-size: 15px;

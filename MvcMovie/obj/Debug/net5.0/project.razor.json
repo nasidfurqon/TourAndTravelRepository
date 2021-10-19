@@ -15644,6 +15644,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\projects\\ProyekWebMVC\\MvcMovie\\Views\\TourAndTravel\\ucapanSelamat.cshtml",
+      "TargetPath": "Views\\TourAndTravel\\ucapanSelamat.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\projects\\ProyekWebMVC\\MvcMovie\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -15676,6 +15681,11 @@
     {
       "FilePath": "d:\\projects\\ProyekWebMVC\\MvcMovie\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\projects\\ProyekWebMVC\\MvcMovie\\Views\\TourAndTravel\\gunung.cshtml",
+      "TargetPath": "Views\\TourAndTravel\\gunung.cshtml",
       "FileKind": "mvc"
     },
     {

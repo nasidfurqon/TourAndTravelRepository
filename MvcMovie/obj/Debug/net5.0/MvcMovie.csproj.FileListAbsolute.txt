@@ -54,3 +54,5 @@ D:\projects\ProyekWebMVC\MvcMovie\obj\Debug\net5.0\Razor\Views\TourAndTravel\Des
 D:\projects\ProyekWebMVC\MvcMovie\obj\Debug\net5.0\Razor\Views\TourAndTravel\Contact.cshtml.g.cs
 D:\projects\ProyekWebMVC\MvcMovie\obj\Debug\net5.0\Razor\Views\TourAndTravel\Tempat.cshtml.g.cs
 D:\projects\ProyekWebMVC\MvcMovie\obj\Debug\net5.0\Razor\Views\TourAndTravel\Show.cshtml.g.cs
+D:\projects\ProyekWebMVC\MvcMovie\obj\Debug\net5.0\Razor\Views\TourAndTravel\ucapanSelamat.cshtml.g.cs
+D:\projects\ProyekWebMVC\MvcMovie\obj\Debug\net5.0\Razor\Views\TourAndTravel\gunung.cshtml.g.cs

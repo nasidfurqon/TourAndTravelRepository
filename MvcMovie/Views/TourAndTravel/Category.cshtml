@@ -3,15 +3,29 @@
     ViewData["Title"] = "Home Page";
 }
 <link rel="stylesheet" href="D:\projects\ProyekWebMVC\MvcMovie\wwwroot\css\site.css">
+<body class="body">
+    
 <section>
     <div class="divisi">
     <h2>Pilih Kategori Tempat Pariwisata</h2>
-    <ul class="baris">
+    <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">Kategori </th>
+                <th scope="col">Ket.</th>
+            </tr>
+            </thead>
     @foreach (var item in Model)
-        {    
-            <li class="kolom">@item.Name</li>
-        }
-    </ul>
+    {
+            <tbody>
+            <tr>
+                <td>@item.Name</td> 
+                <td><a asp-controller="TourAndTravel" asp-action="Gunung" asp-route-id="@item.Id">Details</a> </td>
+            </tr>
+            </tbody>
+    }
+        </table>
     </div>
     <img src="https://cdn.idntimes.com/content-images/post/20200226/collage-e5930e409155af69215bf1de0eaa51e7_600x400.png" alt="kategori">
 </section>
+</body>

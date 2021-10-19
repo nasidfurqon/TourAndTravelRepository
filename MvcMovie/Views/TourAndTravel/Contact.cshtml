@@ -2,13 +2,34 @@
 @{
     ViewData["Title"] = "Contact Person";
 }
+<style>
+    h4{
+  font-weight: 800;
+  font-family:'comic sans-ms';
+ color: #1DB9C3;
+ width: 100%;
+ line-height: 50px;
+ }
+</style>
 <link rel="stylesheet" href="D:\projects\ProyekWebMVC\MvcMovie\wwwroot\css\site.css">
-    <h2>Kontak Whatsapp</h2>
+    <h2>Hai!!, ada yang bisa kami bantu?</h2>
+    <h4>silahkan hubungi nomor dibawah ini!!</h4>
     <div class="divisi">
-    <ul class="baris">
-        @foreach (var item in Model)
-        {    
-            <li class="kolom">@item.Name - @item.NumbePhone</li>
-        }
-    </ul>
+     <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">Nama </th>
+                <th scope="col">No. Whatsapp</th>
+            </tr>
+            </thead>
+    @foreach (var item in Model)
+    {
+            <tbody>
+            <tr>
+                <td>@item.Name</td>
+                <td>+@item.NumbePhone</td>    
+            </tr>
+            </tbody>
+    }
+        </table>
     </div>
