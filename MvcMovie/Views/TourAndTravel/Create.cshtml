@@ -1,0 +1,39 @@
+@model MvcMovie.Models.Tempat
+@{
+ViewData["Title"] = "Buat Tempat Wisata";
+}
+<style>
+    h2{
+ font-weight: 800;
+ font-family:'comic sans-ms';
+color: #1DB9C3;
+font-size: 45px;
+width: 100%;
+line-height: 50px;
+    }
+</style>
+<h2>Punya Rekomendasi Tempat Wisata?</h2>
+<p>ayo buat daftar tempat wisatamu disini!!</p>
+<div class="row">
+    <div class="col-md-4">
+ <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
+            <div class="form-group">
+                <label asp-for="NamaTempat" class="control-label"></label>
+                <input asp-for="NamaTempat" class="form-control" />
+                <span asp-validation-for="NamaTempat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kota" class="control-label"></label>
+                <input asp-for="Kota" class="form-control" />
+                <span asp-validation-for="Kota" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Buat" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

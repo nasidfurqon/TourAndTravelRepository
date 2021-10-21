@@ -104,5 +104,45 @@ namespace MvcMovie.Controllers
             }
             return View(transaction);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Movies/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ID,NamaTempat,Kota")] Tempat tempat)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.tempats.Add(tempat);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("ucapanBerhasil");
+            }
+            return View(tempat);
+        }
+        public IActionResult CreateDeskripsi()
+        {
+            return View();
+        }
+
+        // POST: Movies/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateDeskripsi([Bind("ID,CategoryId,Place,Price,Deskripsi")] Destination destination)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.destinations.Add(destination);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Tempat");
+            }
+            return View(destination);
+        }
+        public IActionResult ucapanBerhasil()
+        {
+            return View();
+        }
     }
 }

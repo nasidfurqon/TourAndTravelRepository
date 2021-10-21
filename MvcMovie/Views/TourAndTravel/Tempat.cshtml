@@ -2,6 +2,20 @@
 @{
     ViewData["Title"] = "Tempat Wisata";
 }
+<style>
+    .styleLink{ 
+      background: black;
+      border-radius: 20px;
+      margin-top: 20px;
+      padding : 15px 20px 15px 20px;
+      color: white;
+      margin-bottom: 50px;
+      }
+      h4{
+ font-family:'comic sans-ms';
+color: #1DB9C3;
+      }
+</style>
         <table class="table ">
             <thead>
             <tr>
@@ -21,3 +35,7 @@
             </tbody>
     }
         </table>
+        
+<h4>Punya Rekomendasi Tempat Wisata?</h4>
+<p>buat dibawah ini</p>
+<a class="styleLink"  asp-controller="TourAndTravel" asp-action="Create">Buat Tempat Wisata</a>
