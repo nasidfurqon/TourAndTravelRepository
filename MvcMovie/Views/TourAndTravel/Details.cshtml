@@ -1,0 +1,35 @@
+@model Category
+@{
+    ViewData["Title"] = "Gunung";
+}
+<style>
+    h2{
+ font-weight: 800;
+ font-family:'comic sans-ms';
+color: #1DB9C3;
+font-size: 45px;
+width: 100%;
+line-height: 50px;
+}
+h4{
+ font-weight: 800;
+ font-family:'comic sans-ms';
+color: black;
+width: 100%;
+line-height: 50px;
+}
+</style>
+    <h2>@Html.DisplayFor(modelItem => Model.Name)</h2>
+    <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">Daftar Tempat Wisata </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><h4> @Html.DisplayFor(modelItem => Model.Tempat)</h4></td> 
+            </tr>
+            </tbody>
+    
+        </table>

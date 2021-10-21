@@ -9,6 +9,7 @@ namespace MvcMovie.Models
         public int CategoryId{get;set;}
         public string Place{get;set;}
         public decimal Price{get;set;}
+        public string Deskripsi {get;set;}
 
     }
 }

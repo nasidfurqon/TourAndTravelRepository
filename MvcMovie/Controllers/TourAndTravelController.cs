@@ -20,10 +20,17 @@ namespace MvcMovie.Controllers
         {
             _context=context;
         }
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            return View();
-        }
+            var movies = from m in _context.tempats
+            select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.NamaTempat.Contains(searchString));
+            }
+            return View(movies);
+            }      
         public IActionResult Login()
         {
             return View();
@@ -71,7 +78,7 @@ namespace MvcMovie.Controllers
         {
             return View();
         }
-        public IActionResult gunung(int? id)
+        public IActionResult Details(int? id)
         {
             if( id == null)
             {
@@ -84,6 +91,18 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
             return View(tempat);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Transaksi([Bind("ID,DestinationID,CustomersId,Date,Price")] Transaction transaction)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.transactions.Add(transaction);
+                await _context.SaveChangesAsync();
+                 return RedirectToAction("ucapanSelamat");
+            }
+            return View(transaction);
         }
     }
 }

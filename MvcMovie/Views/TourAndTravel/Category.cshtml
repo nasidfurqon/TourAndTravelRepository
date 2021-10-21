@@ -2,16 +2,43 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    section{
+  margin: auto;
+  display: flex;
+    margin-bottom: 50px;
+}
+
+.deskripsi {
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+.deskripsi .paragraf {
+  font-size: 20px ;
+  font-weight:bold;
+font-family:'comic sans-ms';
+color:#1DB9C3;
+margin-bottom: 0px;
+}
+
+h2{
+ font-weight: 800;
+ font-family:'comic sans-ms';
+color: #1DB9C3;
+font-size: 45px;
+width: 100%;
+line-height: 50px;
+}
+</style>
 <link rel="stylesheet" href="D:\projects\ProyekWebMVC\MvcMovie\wwwroot\css\site.css">
 <body class="body">
-    
 <section>
     <div class="divisi">
-    <h2>Pilih Kategori Tempat Pariwisata</h2>
+    <h2>Kategori Tempat Pariwisata</h2>
     <table class="table ">
             <thead>
             <tr>
-                <th scope="col">Kategori </th>
+                <th scope="col">ket. Kategori </th>
                 <th scope="col">Ket.</th>
             </tr>
             </thead>
@@ -19,8 +46,8 @@
     {
             <tbody>
             <tr>
-                <td>@item.Name</td> 
-                <td><a asp-controller="TourAndTravel" asp-action="Gunung" asp-route-id="@item.Id">Details</a> </td>
+                <td>@item.Id->@item.Name</td> 
+                <td><a asp-controller="TourAndTravel" asp-action="Details" asp-route-id="@item.Id">Details</a> </td>
             </tr>
             </tbody>
     }
