@@ -37,7 +37,19 @@ namespace MvcMovie.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login([Bind("ID,Name,PhoneNumber,Address,Email,Pasword")] Customers customer)
+        public async Task<IActionResult> Login([Bind("ID,Email,Pasword")] Customers customer)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.customers.Add(customer);
+                await _context.SaveChangesAsync();
+                 return RedirectToAction("ucapanSelamat");
+            }
+            return View(customer);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Registrasi([Bind("ID,Name,PhoneNumber,Address,Email,Pasword")] Customers customer)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +84,6 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
             return View(tempat);
-
         }
         public IActionResult ucapanSelamat()
         {
@@ -84,8 +95,8 @@ namespace MvcMovie.Controllers
             {
                 return NotFound();
             }
-
-            var tempat =_context.categories.Find(id);
+            
+            var tempat =_context.destinations.Find(id);
             if (tempat ==null)
             {
                 return NotFound();
@@ -104,11 +115,18 @@ namespace MvcMovie.Controllers
             }
             return View(transaction);
         }
+        public IActionResult Registrasi()
+        {
+            return View();
+        }
+        public IActionResult Transaksi()
+        {
+            return View();
+        }
         public IActionResult Create()
         {
             return View();
         }
-
         // POST: Movies/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
