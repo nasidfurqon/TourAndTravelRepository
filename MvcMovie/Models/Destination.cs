@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,8 +10,7 @@ namespace MvcMovie.Models
         public int Id { get; set; }
         [RegularExpression(@"^[0-9]*$")]
         [Required]
-        [StringLength(1)]
-        public string CategoryId{get;set;}
+        public int CategoryId{get;set;}
         [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
         [Required]
         [StringLength(30)]
@@ -20,6 +20,6 @@ namespace MvcMovie.Models
         public decimal Price{get;set;}
         [Required]
         public string Deskripsi {get;set;}
-
+        public Category Category {get;set;}
     }
 }

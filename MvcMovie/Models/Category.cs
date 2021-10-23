@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcMovie.Models
@@ -7,6 +8,6 @@ namespace MvcMovie.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Tempat {get ;set;}
+        public List <Destination> Destinations{get;set;}
     }
 }

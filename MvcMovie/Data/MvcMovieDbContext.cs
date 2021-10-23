@@ -7,12 +7,12 @@ namespace MvcMovie.Data
     {
         public MvcMovieDbContext (DbContextOptions<MvcMovieDbContext> options) : base(options)
     { }
-    public DbSet<Category> categories { get; set; }
-    public DbSet<Customers> customers { get; set; }
-    public DbSet<Destination> destinations { get; set; }
-    public DbSet<Transaction> transactions { get; set; }
-    public DbSet<Contact> contacts { get; set; }
-    public DbSet<Tempat> tempats { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Customers> Customers { get; set; }
+    public DbSet<Destination> Destinations { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
+    public DbSet<Tempat> Tempats { get; set; }
     
     }
 }

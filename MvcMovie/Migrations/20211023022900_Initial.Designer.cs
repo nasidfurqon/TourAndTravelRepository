@@ -9,8 +9,8 @@ using MvcMovie.Data;
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(MvcMovieDbContext))]
-    [Migration("20211021013800_Deskripsi")]
-    partial class Deskripsi
+    [Migration("20211023022900_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,12 +28,9 @@ namespace MvcMovie.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Tempat")
-                        .HasColumnType("longtext");
-
                     b.HasKey("Id");
 
-                    b.ToTable("categories");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Contact", b =>
@@ -50,7 +47,7 @@ namespace MvcMovie.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("contacts");
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Customers", b =>
@@ -79,14 +76,12 @@ namespace MvcMovie.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)");
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(14)
-                        .HasColumnType("varchar(14)");
+                    b.Property<int>("PhoneNumber")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("customers");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Destination", b =>
@@ -99,17 +94,22 @@ namespace MvcMovie.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Deskripsi")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Place")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("destinations");
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Destinations");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Tempat", b =>
@@ -119,14 +119,18 @@ namespace MvcMovie.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Kota")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("varchar(15)");
 
                     b.Property<string>("NamaTempat")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("tempats");
+                    b.ToTable("Tempats");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Transaction", b =>
@@ -149,7 +153,46 @@ namespace MvcMovie.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("transactions");
+                    b.HasIndex("CustomersId");
+
+                    b.HasIndex("DestinationID");
+
+                    b.ToTable("Transactions");
+                });
+
+            modelBuilder.Entity("MvcMovie.Models.Destination", b =>
+                {
+                    b.HasOne("MvcMovie.Models.Category", "category")
+                        .WithMany("Destinations")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("category");
+                });
+
+            modelBuilder.Entity("MvcMovie.Models.Transaction", b =>
+                {
+                    b.HasOne("MvcMovie.Models.Customers", "customers")
+                        .WithMany()
+                        .HasForeignKey("CustomersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MvcMovie.Models.Destination", "destination")
+                        .WithMany()
+                        .HasForeignKey("DestinationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("customers");
+
+                    b.Navigation("destination");
+                });
+
+            modelBuilder.Entity("MvcMovie.Models.Category", b =>
+                {
+                    b.Navigation("Destinations");
                 });
 #pragma warning restore 612, 618
         }

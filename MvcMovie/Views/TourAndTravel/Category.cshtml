@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Category>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Kategori";
 }
 <style>
     section{
@@ -24,10 +24,16 @@ margin-bottom: 0px;
 h2{
  font-weight: 800;
  font-family:'comic sans-ms';
-color: #1DB9C3;
+color: #0F3460;
 font-size: 45px;
 width: 100%;
 line-height: 50px;
+}
+body{
+  background-color: #D1E8E4;
+}
+.Style{
+  padding: 50px;
 }
 </style>
 <link rel="stylesheet" href="D:\projects\ProyekWebMVC\MvcMovie\wwwroot\css\site.css">
@@ -35,7 +41,7 @@ line-height: 50px;
 <section>
     <div class="divisi">
     <h2>Kategori Tempat Pariwisata</h2>
-    <table class="table ">
+    <table class="table table-striped">
             <thead>
             <tr>
                 <th scope="col">ket. Kategori </th>
@@ -53,6 +59,8 @@ line-height: 50px;
     }
         </table>
     </div>
+    <div class="Style" >
     <img src="https://cdn.idntimes.com/content-images/post/20200226/collage-e5930e409155af69215bf1de0eaa51e7_600x400.png" alt="kategori">
+    </div>
 </section>
 </body>

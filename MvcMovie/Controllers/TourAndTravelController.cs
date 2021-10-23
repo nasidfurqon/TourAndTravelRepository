@@ -22,7 +22,7 @@ namespace MvcMovie.Controllers
         }
         public IActionResult Index(string searchString)
         {
-            var movies = from m in _context.tempats
+            var movies = from m in _context.Tempats
             select m;
 
             if (!string.IsNullOrEmpty(searchString))
@@ -41,7 +41,7 @@ namespace MvcMovie.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.customers.Add(customer);
+                _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();
                  return RedirectToAction("ucapanSelamat");
             }
@@ -53,7 +53,7 @@ namespace MvcMovie.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.customers.Add(customer);
+                _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();
                  return RedirectToAction("ucapanSelamat");
             }
@@ -61,15 +61,15 @@ namespace MvcMovie.Controllers
         }
         public IActionResult Contact()
         {
-            return View(_context.contacts.ToList());
+            return View(_context.Contacts.ToList());
         }
         public IActionResult Tempat()
         {
-            return View(_context.tempats.ToList());
+            return View(_context.Tempats.ToList());
         }
         public IActionResult Category()
         {
-            return View(_context.categories.ToList());
+            return View(_context.Categories.ToList());
         }
         public  IActionResult Show(int? id)
         {
@@ -78,7 +78,7 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var tempat =_context.destinations.Find(id);
+            var tempat =_context.Destinations.Find(id);
             if (tempat ==null)
             {
                 return NotFound();
@@ -96,12 +96,8 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
             
-            var tempat =_context.destinations.Find(id);
-            if (tempat ==null)
-            {
-                return NotFound();
-            }
-            return View(tempat);
+            var  destinasi =_context.Destinations.Where(x=>x.Id==id);
+            return View(destinasi);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -109,7 +105,7 @@ namespace MvcMovie.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.transactions.Add(transaction);
+                _context.Transactions.Add(transaction);
                 await _context.SaveChangesAsync();
                  return RedirectToAction("ucapanSelamat");
             }
@@ -134,7 +130,7 @@ namespace MvcMovie.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.tempats.Add(tempat);
+                _context.Tempats.Add(tempat);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("ucapanBerhasil");
             }
@@ -152,7 +148,7 @@ namespace MvcMovie.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.destinations.Add(destination);
+                _context.Destinations.Add(destination);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Tempat");
             }

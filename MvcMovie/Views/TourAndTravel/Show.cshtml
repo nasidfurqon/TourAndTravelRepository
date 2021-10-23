@@ -6,7 +6,7 @@
       h2{
     font-weight: 800;
     font-family:'comic sans-ms';
-    color: #1DB9C3;
+    color: #0F3460;
     font-size: 45px;
     width: 100%;
     line-height: 50px;
@@ -18,9 +18,14 @@
       padding : 15px 20px 15px 20px;
       color: white;
       }
+      body{
+  background-color: #D1E8E4;
+}
 </style>
+<body>
+  
 <h2>@Html.DisplayFor(modelItem => Model.Place)</h2>  
-<table class="table table-hover">
+<table class="table table-hover table-striped">
     <tr>
       <td >Kategori:</td>
       <td >@Html.DisplayFor(modelItem => Model.CategoryId)</td>
@@ -35,3 +40,4 @@
     </tr>
 </table>
     <a class="styleLink" asp-controller="TourAndTravel" asp-action="Transaksi" asp-route-id="@Model.Id">Beli Tiket</a>
+</body>

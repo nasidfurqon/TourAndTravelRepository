@@ -1,12 +1,12 @@
-@model Category
+@model IEnumerable<Destination>
 @{
-    ViewData["Title"] = "Gunung";
+    ViewData["Title"] = "Details";
 }
 <style>
     h2{
  font-weight: 800;
  font-family:'comic sans-ms';
-color: #1DB9C3;
+color: #0F3460;
 font-size: 45px;
 width: 100%;
 line-height: 50px;
@@ -18,9 +18,16 @@ color: black;
 width: 100%;
 line-height: 50px;
 }
+body{
+  background-color: #D1E8E4;
+}
 </style>
-    <h2>@Html.DisplayFor(modelItem => Model.Name)</h2>
-    <table class="table ">
+<body>
+    @foreach (var item in Model)
+    {
+     
+<h2>kategori @item.CategoryId</h2>
+    <table class="table table-striped ">
             <thead>
             <tr>
                 <th scope="col">Daftar Tempat Wisata </th>
@@ -28,8 +35,10 @@ line-height: 50px;
             </thead>
             <tbody>
             <tr>
-                <td><h4> @Html.DisplayFor(modelItem => Model.Tempat)</h4></td> 
+                <td><h4> @item.Place</h4></td> 
             </tr>
             </tbody>
-    
         </table>
+    }
+
+</body>

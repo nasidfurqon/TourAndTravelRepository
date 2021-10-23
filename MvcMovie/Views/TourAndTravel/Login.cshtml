@@ -6,7 +6,7 @@
     h2{
  font-weight: 800;
  font-family:'comic sans-ms';
-color: #1DB9C3;
+color: #0F3460;
 font-size: 45px;
 width: 100%;
 line-height: 50px;
@@ -14,7 +14,12 @@ line-height: 50px;
 .styleLink{ 
       color: black;
       }
+      body{
+  background-color: #D1E8E4;
+}
 </style>
+<body>
+    
 <h2>Masuk ke Akunmu</h2>
 <p>belum punya akun? </p>
 <a class="styleLink" asp-controller="TourAndTravel" asp-action="Registrasi">Buat disini</a>
@@ -41,3 +46,4 @@ line-height: 50px;
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+</body>

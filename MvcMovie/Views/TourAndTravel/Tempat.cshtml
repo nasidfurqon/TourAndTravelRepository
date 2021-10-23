@@ -13,10 +13,15 @@
       }
       h4{
  font-family:'comic sans-ms';
-color: #1DB9C3;
+color: #0F3460;
       }
+      body{
+  background-color: #D1E8E4;
+}
 </style>
-        <table class="table ">
+<body>
+    
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th scope="col">Tempat Wisata</th>
@@ -30,7 +35,7 @@ color: #1DB9C3;
             <tr>
                 <td>@item.NamaTempat</td>    
                 <td>@item.Kota</td>
-                <td><a asp-controller="TourAndTravel" asp-action="Show" asp-route-id="@item.Id">Details</a> </td>
+                <td><a asp-controller="TourAndTravel" asp-action="Show" asp-route-id="@item.Id">Details</a></td>
             </tr>
             </tbody>
     }
@@ -39,3 +44,4 @@ color: #1DB9C3;
 <h4>Punya Rekomendasi Tempat Wisata?</h4>
 <p>buat dibawah ini</p>
 <a class="styleLink"  asp-controller="TourAndTravel" asp-action="Create">Buat Tempat Wisata</a>
+</body>

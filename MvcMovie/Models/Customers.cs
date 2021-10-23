@@ -14,8 +14,7 @@ namespace MvcMovie.Models
 
         [RegularExpression(@"^(\+62|62|0)8[0-9]*$")]
         [Required]
-        [StringLength(14)]
-        public string PhoneNumber {get;set;}
+        public int PhoneNumber {get;set;}
         
         [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
         [Required]

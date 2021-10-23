@@ -6,26 +6,25 @@
     h2{
  font-weight: 800;
  font-family:'comic sans-ms';
-color: #1DB9C3;
+color: #0F3460;
 font-size: 45px;
 width: 100%;
 line-height: 50px;
 }
 </style>
-<h2>Masuk ke Akunmu</h2>
-<p>belum punya akun? buat disini</p>
+<h2>lengkapi data dibawah untuk membeli tiket</h2>
 <div class="row">
     <div class="col-md-4">
  <form asp-action="Transaksi">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
             <div class="form-group">
                 <label asp-for="DestinationID" class="control-label"></label>
-                <output @Html.DisplayFor(modelItem => Model.DestinationID)/>
+                <input @Html.DisplayFor(modelItem => Model.DestinationID)/>
                 <span asp-validation-for="DestinationID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CustomersId" class="control-label"></label>
-                <output @Html.DisplayFor(modelItem => Model.CustomersId)/>
+                <input Model.CustomersId)/>
                 <span asp-validation-for="CustomersId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,7 +34,7 @@ line-height: 50px;
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <output @Html.DisplayFor(modelItem => Model.Price) />
+                <input @Html.DisplayFor(modelItem => Model.Price) />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
