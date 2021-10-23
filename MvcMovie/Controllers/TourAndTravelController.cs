@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -89,6 +89,7 @@ namespace MvcMovie.Controllers
         {
             return View();
         }
+
         public IActionResult Details(int? id)
         {
             if( id == null)
@@ -96,9 +97,10 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
             
-            var  destinasi =_context.Destinations.Where(x=>x.Id==id);
+            var  destinasi =_context.Destinations.Where(x=>x.CategoryId==id);
             return View(destinasi);
         }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Transaksi([Bind("ID,DestinationID,CustomersId,Date,Price")] Transaction transaction)
