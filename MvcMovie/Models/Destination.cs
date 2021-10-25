@@ -21,5 +21,7 @@ namespace MvcMovie.Models
         [Required]
         public string Deskripsi {get;set;}
         public Category Category {get;set;}
+        
+        public List <Transaction> Transaction{get;set;}
     }
 }

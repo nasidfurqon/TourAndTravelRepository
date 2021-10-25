@@ -10,55 +10,27 @@ using MvcMovie.Data;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MvcMovie.Controllers
 {
     public class TourAndTravelController : Controller
     {
-        MvcMovieDbContext _context;
-        public TourAndTravelController (MvcMovieDbContext context)
+        
+        private readonly ILogger<TourAndTravelController> _logger;
+        private UserManager<Customers> _userManager;
+        public TourAndTravelController(ILogger<TourAndTravelController> logger, MvcMovieDbContext context, UserManager<Customers> userManager)
         {
-            _context=context;
+            _logger = logger;
+            _context = context;
+            _userManager = userManager;
         }
-        public IActionResult Index(string searchString)
-        {
-            var movies = from m in _context.Tempats
-            select m;
-
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                movies = movies.Where(s => s.NamaTempat.Contains(searchString));
-            }
-            return View(movies);
-            }      
-        public IActionResult Login()
+        MvcMovieDbContext _context;
+        public IActionResult Index()
         {
             return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login([Bind("ID,Email,Pasword")] Customers customer)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Customers.Add(customer);
-                await _context.SaveChangesAsync();
-                 return RedirectToAction("ucapanSelamat");
-            }
-            return View(customer);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registrasi([Bind("ID,Name,PhoneNumber,Address,Email,Pasword")] Customers customer)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Customers.Add(customer);
-                await _context.SaveChangesAsync();
-                 return RedirectToAction("ucapanSelamat");
-            }
-            return View(customer);
-        }
+        }      
         public IActionResult Contact()
         {
             return View(_context.Contacts.ToList());
@@ -71,6 +43,7 @@ namespace MvcMovie.Controllers
         {
             return View(_context.Categories.ToList());
         }
+        [Authorize]
         public  IActionResult Show(int? id)
         {
             if( id == null)
@@ -84,10 +57,6 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
             return View(tempat);
-        }
-        public IActionResult ucapanSelamat()
-        {
-            return View();
         }
 
         public IActionResult Details(int? id)
@@ -109,13 +78,15 @@ namespace MvcMovie.Controllers
             {
                 _context.Transactions.Add(transaction);
                 await _context.SaveChangesAsync();
-                 return RedirectToAction("ucapanSelamat");
+                 return RedirectToAction("TransaksiBerhasil");
             }
             return View(transaction);
         }
         public IActionResult Registrasi()
         {
-            return View();
+            var userId = _userManager.GetUserId(User);
+            var user = _context.Users.Find(userId);
+            return View(user);
         }
         public IActionResult Transaksi()
         {
@@ -157,6 +128,10 @@ namespace MvcMovie.Controllers
             return View(destination);
         }
         public IActionResult ucapanBerhasil()
+        {
+            return View();
+        }
+        public IActionResult TransaksiBerhasil()
         {
             return View();
         }
