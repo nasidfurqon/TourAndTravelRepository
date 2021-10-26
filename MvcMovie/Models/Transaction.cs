@@ -7,11 +7,11 @@ namespace MvcMovie.Models
     {
         public int Id { get; set; }
         public int DestinationID { get; set; }
-        public int CustomersId{get;set;}
+        public string CustomersId{get;set;}
         [DataType(DataType.Date)]
         public DateTime Date { get; set;}
         public decimal Price{get;set;}
-        public Customers Customers{get;set;}
-        public Destination Destination{get;set;}
+        public virtual Customers Customers{get;set;}
+        public virtual Destination Destination{get;set;}
     }
 }

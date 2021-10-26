@@ -11,6 +11,6 @@ namespace MvcMovie.Models
         [Required]
         [StringLength(50)]
         public string Address{get;set;}
-        public List <Transaction> transactions{get;set;}
+        public virtual List <Transaction> transactions{get;set;}
     }
 }

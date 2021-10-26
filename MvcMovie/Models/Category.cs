@@ -8,6 +8,6 @@ namespace MvcMovie.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List <Destination> Destinations{get;set;}
+        public virtual List <Destination> Destinations{get;set;}
     }
 }

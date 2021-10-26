@@ -20,8 +20,8 @@ namespace MvcMovie.Models
         public decimal Price{get;set;}
         [Required]
         public string Deskripsi {get;set;}
-        public Category Category {get;set;}
+        public virtual Category Categorys {get;set;}
         
-        public List <Transaction> Transaction{get;set;}
+        public virtual List <Transaction> Transaction{get;set;}
     }
 }

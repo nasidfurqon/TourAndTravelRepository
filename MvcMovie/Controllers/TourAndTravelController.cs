@@ -69,7 +69,6 @@ namespace MvcMovie.Controllers
             var  destinasi =_context.Destinations.Where(x=>x.CategoryId==id);
             return View(destinasi);
         }
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Transaksi([Bind("ID,DestinationID,CustomersId,Date,Price")] Transaction transaction)
