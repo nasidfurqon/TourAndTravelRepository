@@ -54,6 +54,7 @@ namespace MvcMovie.Areas.Identity.Pages.Account.Manage
             {
                 PhoneNumber = phoneNumber
             };
+            Avatar = Path.Combine("/Profile/Avatar", user.Avatar);
         }
 
         public async Task<IActionResult> OnGetAsync()
