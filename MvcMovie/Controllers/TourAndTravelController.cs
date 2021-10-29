@@ -1,4 +1,4 @@
- using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -69,6 +69,7 @@ namespace MvcMovie.Controllers
             var  destinasi =_context.Destinations.Where(x=>x.CategoryId==id);
             return View(destinasi);
         }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Transaksi([Bind("ID,DestinationID,CustomersId,Date,Price")] Transaction transaction)
@@ -81,16 +82,12 @@ namespace MvcMovie.Controllers
             }
             return View(transaction);
         }
-        public IActionResult Registrasi()
-        {
-            var userId = _userManager.GetUserId(User);
-            var user = _context.Users.Find(userId);
-            return View(user);
-        }
         public IActionResult Transaksi()
         {
             return View();
         }
+        
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -126,11 +123,11 @@ namespace MvcMovie.Controllers
             }
             return View(destination);
         }
-        public IActionResult ucapanBerhasil()
+        public IActionResult TransaksiBerhasil()
         {
             return View();
         }
-        public IActionResult TransaksiBerhasil()
+        public IActionResult ucapanBerhasil()
         {
             return View();
         }

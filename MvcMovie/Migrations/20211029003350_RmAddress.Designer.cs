@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcMovie.Data;
 
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(MvcMovieDbContext))]
-    partial class MvcMovieDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211029003350_RmAddress")]
+    partial class RmAddress
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

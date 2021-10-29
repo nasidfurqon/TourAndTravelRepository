@@ -1,3 +1,4 @@
+
 @model MvcMovie.Models.Transaction
 @{
     ViewData["Title"] = "Transaksi";
@@ -12,20 +13,15 @@ width: 100%;
 line-height: 50px;
 }
 </style>
-<h2>lengkapi data dibawah untuk membeli tiket</h2>
+<h2 style="font-family: 'PT Mono', monospace;">lengkapi data dibawah untuk membeli tiket</h2>
 <div class="row">
     <div class="col-md-4">
  <form asp-action="Transaksi">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
             <div class="form-group">
                 <label asp-for="DestinationID" class="control-label"></label>
-                <input @Html.DisplayFor(modelItem => Model.DestinationID)/>
+                <input asp-for="DestinationID" class="form-control" />
                 <span asp-validation-for="DestinationID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomersId" class="control-label"></label>
-                <input Model.CustomersId)/>
-                <span asp-validation-for="CustomersId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
@@ -34,7 +30,7 @@ line-height: 50px;
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input @Html.DisplayFor(modelItem => Model.Price) />
+                <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
