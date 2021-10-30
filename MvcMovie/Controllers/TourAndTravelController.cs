@@ -72,7 +72,7 @@ namespace MvcMovie.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Transaksi([Bind("ID,DestinationID,CustomersId,Date,Price")] Transaction transaction)
+        public async Task<IActionResult> Transaksi([Bind("ID,DestinationID,CustomersId,Date,Price,UserName")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {

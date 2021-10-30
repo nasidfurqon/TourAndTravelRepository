@@ -11,6 +11,7 @@ namespace MvcMovie.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set;}
         public decimal Price{get;set;}
+        public string UserName {get;set;}
         public virtual Customers Customers{get;set;}
         public virtual Destination Destination{get;set;}
     }
