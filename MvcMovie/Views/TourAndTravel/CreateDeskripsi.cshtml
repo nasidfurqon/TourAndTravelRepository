@@ -24,13 +24,22 @@ line-height: 50px;
             <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <input asp-for="CategoryId" class="form-control" />
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                <select asp-for="CategoryId" class="form-control">
+                <option value="1">Pantai</option>
+                <option value="2">Gunung</option>
+                <option value="3">Taman</option>
+                <option value="4">Air Terjun</option>
+            </select>
             </div>
             <div class="form-group">
                 <label asp-for="Place" class="control-label"></label>
                 <input asp-for="Place" class="form-control" />
                 <span asp-validation-for="Place" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kota" class="control-label"></label>
+                <input asp-for="Kota" class="form-control" />
+                <span asp-validation-for="Kota" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
