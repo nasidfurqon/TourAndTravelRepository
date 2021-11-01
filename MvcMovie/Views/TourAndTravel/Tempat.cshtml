@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tempat>
+﻿@model IEnumerable<Destination>
 @{
     ViewData["Title"] = "Tempat Wisata";
 }
@@ -33,9 +33,11 @@ color: #0F3460;
     {
             <tbody>
             <tr>
-                <td>@item.NamaTempat</td>    
+                <td>@item.Place</td>    
                 <td>@item.Kota</td>
-                <td><a asp-controller="TourAndTravel" asp-action="Show" asp-route-id="@item.Id">Details</a></td>
+                 <td><a asp-controller="TourAndTravel" asp-action="Show" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="TourAndTravel" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-controller="TourAndTravel" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
             </tr>
             </tbody>
     }
@@ -43,5 +45,5 @@ color: #0F3460;
         
 <h4 style="font-family: 'Zen Kurenaido', sans-serif;">Punya Rekomendasi Tempat Wisata?</h4>
 <p style="font-family: 'Zen Kurenaido', sans-serif;">buat dibawah ini</p>
-<a class="styleLink"  asp-controller="TourAndTravel" asp-action="Create">Buat Tempat Wisata</a>
+<a class="styleLink"  asp-controller="TourAndTravel" asp-action="CreateDeskripsi">Buat Tempat Wisata</a>
 </body>
