@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcMovie.Data;
 
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(MvcMovieDbContext))]
-    partial class MvcMovieDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211031124924_Kota")]
+    partial class Kota
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,20 +43,6 @@ namespace MvcMovie.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "d862b39c-eb5e-4db5-96ed-da2f2bc068f2",
-                            ConcurrencyStamp = "10eb0aee-81d2-45ec-872b-276a78ae5353",
-                            Name = "Admin"
-                        },
-                        new
-                        {
-                            Id = "64588cdf-755e-4914-b93c-fb4c16044696",
-                            ConcurrencyStamp = "c7063f4a-2274-45f0-8632-111afda58789",
-                            Name = "User"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -259,24 +247,6 @@ namespace MvcMovie.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "c51526fb-1060-4ae5-b670-8ebd909834a3",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "2d52ba1f-ec5a-46c2-98b8-eb46645be1ec",
-                            Email = "admin@admin.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@ADMIN.COM",
-                            NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAk40QyE2Imx0dMQyFcKgvI4lSoj7zDJ81s6OeYZIdS1YMEiV1TAiJRr9ntJTEMBig==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "97ed7a5b-198d-4bd9-8408-7aa58e084690",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@admin.com"
-                        });
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Destination", b =>
@@ -293,9 +263,7 @@ namespace MvcMovie.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Kota")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("varchar(15)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Place")
                         .IsRequired()

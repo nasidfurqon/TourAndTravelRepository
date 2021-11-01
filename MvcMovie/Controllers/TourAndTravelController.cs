@@ -37,7 +37,7 @@ namespace MvcMovie.Controllers
         }
         public IActionResult Tempat()
         {
-            return View(_context.Tempats.ToList());
+            return View(_context.Destinations.ToList());
         }
         public IActionResult Category()
         {
@@ -72,7 +72,7 @@ namespace MvcMovie.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Transaksi([Bind("ID,DestinationID,CustomersId,Date,Price,UserName")] Transaction transaction)
+        public async Task<IActionResult> Transaksi([Bind("Id,DestinationID,CustomersId,Date,Price,UserName")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -87,24 +87,8 @@ namespace MvcMovie.Controllers
             return View();
         }
         
-        [Authorize]
-        public IActionResult Create()
-        {
-            return View();
-        }
         // POST: Movies/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,NamaTempat,Kota")] Tempat tempat)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Tempats.Add(tempat);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("ucapanBerhasil");
-            }
-            return View(tempat);
-        }
+       [Authorize]
         public IActionResult CreateDeskripsi()
         {
             return View();
@@ -113,13 +97,13 @@ namespace MvcMovie.Controllers
         // POST: Movies/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateDeskripsi([Bind("ID,CategoryId,Place,Price,Deskripsi")] Destination destination)
+        public async Task<IActionResult> CreateDeskripsi([Bind("Id,CategoryId,Place,Kota,Price,Deskripsi")] Destination destination)
         {
             if (ModelState.IsValid)
             {
                 _context.Destinations.Add(destination);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Tempat");
+                return RedirectToAction("UcapanBerhasil");
             }
             return View(destination);
         }
@@ -130,6 +114,80 @@ namespace MvcMovie.Controllers
         public IActionResult ucapanBerhasil()
         {
             return View();
+        }
+        public IActionResult Edit(int? id)
+        {
+            var movie=_context.Destinations.Find(id);
+             if (id == null)
+                {
+                    return NotFound();
+                }
+            if (movie==null)
+            {
+
+                return NotFound();
+            }
+
+            return View(movie);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryId,Place,Kota,Price,Deskripsi")] Destination destination)
+            {
+                if (id != destination.Id)
+                {
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        _context.Update(destination);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!MovieExists(destination.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction("Tempat");
+                }
+                return View(destination);
+            }
+        private bool MovieExists(int id)
+        {
+            var movie =_context.Destinations.Find(id);
+            return movie!=null;
+        }
+        public  IActionResult Delete(int? id)
+        {
+            if( id == null)
+            {
+                return NotFound();
+            }
+
+            var movie =_context.Destinations.Find(id);
+            if (movie ==null)
+            {
+                return NotFound();
+            }
+            return View(movie);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+        var movie = await _context.Destinations.FindAsync(id);
+        _context.Destinations.Remove(movie);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Tempat");
         }
     }
 }

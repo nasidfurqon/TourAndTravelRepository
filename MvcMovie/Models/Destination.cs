@@ -20,6 +20,11 @@ namespace MvcMovie.Models
         public decimal Price{get;set;}
         [Required]
         public string Deskripsi {get;set;}
+        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+        [Required]
+        [StringLength(15)]
+
+        public string Kota {get;set;}
         public virtual Category Categorys {get;set;}
         public virtual List <Transaction> Transaction{get;set;}
     }

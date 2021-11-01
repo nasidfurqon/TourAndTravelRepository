@@ -38,6 +38,7 @@ namespace MvcMovie
             });
             services
             .AddDefaultIdentity<Customers>()
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<MvcMovieDbContext>()
             .AddDefaultTokenProviders();
             services.AddRazorPages();
