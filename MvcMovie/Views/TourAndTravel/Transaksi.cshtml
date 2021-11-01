@@ -1,5 +1,4 @@
-
-@model MvcMovie.Models.Transaction
+ @model MvcMovie.Models.Transaction
 @{
     ViewData["Title"] = "Transaksi";
 }
@@ -20,8 +19,17 @@ line-height: 50px;
             <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
             <div class="form-group">
                 <label asp-for="DestinationID" class="control-label"></label>
-                <input asp-for="DestinationID" class="form-control" />
-                <span asp-validation-for="DestinationID" class="text-danger"></span>
+                <select asp-for="DestinationID" class="form-control">
+                <option value="1">Wisata Agro Jollong Pati </option>
+                <option value="2">Wisata Gunung Rowo</option>
+                <option value="3">Bukit Pandang</option>
+                <option value="4">Lorodan Semar</option>
+                <option value="5">Air Terjun Montel Kudus</option>
+                <option value="6">Air Terjun Songgo Langit</option>
+                <option value="7">Pantai Karang Jahe Rembang</option>
+                <option value="8">Pantai Wates</option>
+                <option value="9">Taman  Oasis</option>
+            </select>
             </div>
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
