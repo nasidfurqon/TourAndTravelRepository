@@ -37,47 +37,6 @@ namespace MvcMovie.Controllers
         {
             return View(_context.Transactions.ToList());
         }
-        public IActionResult CekUpdate()
-        {
-            return View(_context.dataSementaras.ToList());
-        }
-        public  IActionResult Delete(int? id)
-        {
-            if( id == null)
-            {
-                return NotFound();
-            }
-
-            var movie =_context.dataSementaras.Find(id);
-            if (movie ==null)
-            {
-                return NotFound();
-            }
-            return View(movie);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var movie = await _context.dataSementaras.FindAsync(id);
-            _context.dataSementaras.Remove(movie);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Cekupdate");
-        }
-
-        public  IActionResult Add(int? id)
-        {
-            if( id == null)
-            {
-                return NotFound();
-            }
-
-            var movie =_context.dataSementaras.Find(id);
-            if (movie ==null)
-            {
-                return NotFound();
-            }
-            return View(movie);
-        }
+        
     }
 }

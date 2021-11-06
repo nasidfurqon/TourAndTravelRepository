@@ -42,22 +42,22 @@ namespace MvcMovie.Controllers
             {
                 movies = movies.Where(s => s.Place.Contains(searchString));
             }
-
+            movies=movies.Where(s =>s.Verify=="iya");
             return View(await movies.ToListAsync());
         }
 
         // POST: Movies/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateDeskripsi([Bind("Id,CategoryId,Place,Kota,Price,Deskripsi")] DataSementara dataSementara)
+        public async Task<IActionResult> CreateDeskripsi([Bind("Id,CategoryId,Place,Kota,Price,Deskripsi")] Destination destination)
         {
             if (ModelState.IsValid)
             {
-                _context.dataSementaras.Add(dataSementara);
+                _context.Destinations.Add(destination);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("UcapanBerhasil");
             }
-            return View(dataSementara);
+            return View(destination);
         }
        
         public IActionResult Edit(int? id)
@@ -138,6 +138,15 @@ namespace MvcMovie.Controllers
         public IActionResult UcapanBerhasil()
         {
             return View();
+        }
+
+       public IActionResult Verified (int id)
+        {
+            var Verified =_context.Destinations.Find(id);
+            Verified.Verify="iya";
+            _context.Destinations.Add(Verified);
+            _context.SaveChanges();
+            return RedirectToAction("Tempat");
         }
     }
 }

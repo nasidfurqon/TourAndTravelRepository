@@ -45,14 +45,14 @@ namespace MvcMovie.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7343d838-efca-4a83-aecc-d92f7d302513",
-                            ConcurrencyStamp = "fb9d7349-e5ca-4425-8d77-519b6b4d9692",
+                            Id = "bce7bb00-2e01-4535-bef2-8a4da1d96ce4",
+                            ConcurrencyStamp = "c3874857-9a69-454a-9bfd-32e8ffb328b1",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "e3b84a99-d2f0-4fb2-9825-c28e652e289a",
-                            ConcurrencyStamp = "c1a39b81-1b63-4af5-af13-a854c373448e",
+                            Id = "bf43bd7f-5638-41ee-aa90-2abc65be829c",
+                            ConcurrencyStamp = "a7723d84-8823-4aa6-831a-89e966314958",
                             Name = "User"
                         });
                 });
@@ -263,53 +263,20 @@ namespace MvcMovie.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ebcc13c9-e7ff-4234-b5e2-2d042c2e7993",
+                            Id = "3b2907be-79c3-41a3-8759-ee45a8cf54ba",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8e877801-87e4-4d1f-bb7d-bb58061eae1b",
+                            ConcurrencyStamp = "35ba1cfa-f3f0-451e-b789-96be349a6fec",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPKsTtcHgiUO2ibPijkVrbC0F4Vnp8nUODwKkdADsFirBNGq/gCTIsLGTZBox1abqg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPzwdvVpZ7Q/yZiXMWxN48wjEktAN4OmOcADVtl3n4ysnUEOsZZOJL2ShEmWLxYahA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d1ee8241-9fa9-4488-bbec-052cff051d9c",
+                            SecurityStamp = "9b36369d-6b5b-482a-9942-256909801421",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });
-                });
-
-            modelBuilder.Entity("MvcMovie.Models.DataSementara", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Deskripsi")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Kota")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("varchar(15)");
-
-                    b.Property<string>("Place")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("dataSementaras");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Destination", b =>
@@ -337,6 +304,9 @@ namespace MvcMovie.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Verify")
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -375,9 +345,6 @@ namespace MvcMovie.Migrations
                     b.Property<string>("CustomersId")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int?>("DataSementaraId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
@@ -393,8 +360,6 @@ namespace MvcMovie.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CustomersId");
-
-                    b.HasIndex("DataSementaraId");
 
                     b.HasIndex("DestinationID");
 
@@ -452,17 +417,6 @@ namespace MvcMovie.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MvcMovie.Models.DataSementara", b =>
-                {
-                    b.HasOne("MvcMovie.Models.Category", "Categorys")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Categorys");
-                });
-
             modelBuilder.Entity("MvcMovie.Models.Destination", b =>
                 {
                     b.HasOne("MvcMovie.Models.Category", "Categorys")
@@ -479,10 +433,6 @@ namespace MvcMovie.Migrations
                     b.HasOne("MvcMovie.Models.Customers", "Customers")
                         .WithMany("transactions")
                         .HasForeignKey("CustomersId");
-
-                    b.HasOne("MvcMovie.Models.DataSementara", null)
-                        .WithMany("Transaction")
-                        .HasForeignKey("DataSementaraId");
 
                     b.HasOne("MvcMovie.Models.Destination", "Destination")
                         .WithMany("Transaction")
@@ -503,11 +453,6 @@ namespace MvcMovie.Migrations
             modelBuilder.Entity("MvcMovie.Models.Customers", b =>
                 {
                     b.Navigation("transactions");
-                });
-
-            modelBuilder.Entity("MvcMovie.Models.DataSementara", b =>
-                {
-                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Destination", b =>

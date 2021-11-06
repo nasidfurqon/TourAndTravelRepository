@@ -9,8 +9,8 @@ using MvcMovie.Data;
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(MvcMovieDbContext))]
-    [Migration("20211101014720_Seeder")]
-    partial class Seeder
+    [Migration("20211106031543_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,14 +47,14 @@ namespace MvcMovie.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d862b39c-eb5e-4db5-96ed-da2f2bc068f2",
-                            ConcurrencyStamp = "10eb0aee-81d2-45ec-872b-276a78ae5353",
+                            Id = "bce7bb00-2e01-4535-bef2-8a4da1d96ce4",
+                            ConcurrencyStamp = "c3874857-9a69-454a-9bfd-32e8ffb328b1",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "64588cdf-755e-4914-b93c-fb4c16044696",
-                            ConcurrencyStamp = "c7063f4a-2274-45f0-8632-111afda58789",
+                            Id = "bf43bd7f-5638-41ee-aa90-2abc65be829c",
+                            ConcurrencyStamp = "a7723d84-8823-4aa6-831a-89e966314958",
                             Name = "User"
                         });
                 });
@@ -265,17 +265,17 @@ namespace MvcMovie.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c51526fb-1060-4ae5-b670-8ebd909834a3",
+                            Id = "3b2907be-79c3-41a3-8759-ee45a8cf54ba",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2d52ba1f-ec5a-46c2-98b8-eb46645be1ec",
+                            ConcurrencyStamp = "35ba1cfa-f3f0-451e-b789-96be349a6fec",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAk40QyE2Imx0dMQyFcKgvI4lSoj7zDJ81s6OeYZIdS1YMEiV1TAiJRr9ntJTEMBig==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPzwdvVpZ7Q/yZiXMWxN48wjEktAN4OmOcADVtl3n4ysnUEOsZZOJL2ShEmWLxYahA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "97ed7a5b-198d-4bd9-8408-7aa58e084690",
+                            SecurityStamp = "9b36369d-6b5b-482a-9942-256909801421",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });
@@ -306,6 +306,9 @@ namespace MvcMovie.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Verify")
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

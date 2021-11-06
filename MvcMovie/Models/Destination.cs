@@ -27,5 +27,6 @@ namespace MvcMovie.Models
         public string Kota {get;set;}
         public virtual Category Categorys {get;set;}
         public virtual List <Transaction> Transaction{get;set;}
+        public string Verify {get; set;}
     }
 }
