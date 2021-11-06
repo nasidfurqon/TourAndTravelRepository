@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Destination>
+﻿@model IEnumerable<DataSementara>
 @{
     ViewData["Title"] = "Tempat Wisata";
 }
@@ -25,8 +25,10 @@ color: #0F3460;
             <thead>
             <tr>
                 <th scope="col">Tempat Wisata</th>
+                <th scope="col">Category Id</th>
                 <th scope="col">Kota </th>
-                <th scope="col">Keterangan </th>
+                <th scope="col">Price </th>
+                <th scope="col">Deskripsi </th>                
             </tr>
             </thead>
     @foreach (var item in Model)
@@ -34,14 +36,14 @@ color: #0F3460;
             <tbody>
             <tr>
                 <td>@item.Place</td>    
+                <td>@item.CategoryId</td>
                 <td>@item.Kota</td>
-                 <td><a asp-controller="TourItem" asp-action="Show" asp-route-id="@item.Id">Details</a></td>
+                <td>@item.Price</td>
+                <td>@item.Deskripsi</td>
+                <td><a asp-controller="Admin" asp-action="Add" asp-route-id="@item.Id">Add To List</a> |
+                <a asp-controller="Admin" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
             </tr>
             </tbody>
     }
         </table>
-        
-<h4 style="font-family: 'Zen Kurenaido', sans-serif;">Punya Rekomendasi Tempat Wisata?</h4>
-<p style="font-family: 'Zen Kurenaido', sans-serif;">buat dibawah ini</p>
-<a class="styleLink"  asp-controller="TourAndTravel" asp-action="CreateDeskripsi">Buat Tempat Wisata</a>
 </body>

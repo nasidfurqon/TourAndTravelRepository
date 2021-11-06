@@ -5,7 +5,7 @@
 <style>
       h2{
     font-weight: 800;
-    font-family: 'Zen Kurenaido', sans-serif;"
+    font-family: 'Zen Kurenaido', sans-serif;
     color: #0F3460;
     font-size: 45px;
     width: 100%;
@@ -23,7 +23,7 @@
 }
   p{
     font-size: 20px;
-    font-family: 'Source Serif Pro', serif;
+    font-family: 'comic sans-ms';
   }
 </style>
 <body>
@@ -33,5 +33,5 @@
     <p>Kategori @Html.DisplayFor(modelItem => Model.CategoryId)</p>
     <p>@Html.DisplayFor(modelItem => Model.Deskripsi)</p>
     <p>di tempat wisata @Html.DisplayFor(modelItem => Model.Place) ini memiliki harga tiket <u>Rp.@Math.Round(@Model.Price)</u></p>
-    <a class="styleLink" asp-controller="TourAndTravel" asp-action="Transaksi" asp-route-id="@Model.Id">Beli Tiket</a>
+    <a class="styleLink"  asp-controller="TourTransaksi" asp-action="Index">Beli Tiket</a>
 </body>

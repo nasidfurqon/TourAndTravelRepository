@@ -16,6 +16,8 @@ namespace MvcMovie.Data
     public DbSet<Transaction> Transactions { get; set; }
     public DbSet<Contact> Contacts { get; set; }
     public DbSet<Tempat> Tempats { get; set; }
+    public DbSet<DataSementara> dataSementaras { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder builder)
         {

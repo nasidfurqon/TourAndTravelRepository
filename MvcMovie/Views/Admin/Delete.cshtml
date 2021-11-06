@@ -1,4 +1,4 @@
-@model Destination
+@model DataSementara
 @{
 ViewData["Title"] = "Delete";
 }
@@ -22,7 +22,7 @@ ViewData["Title"] = "Delete";
       <td >@Html.DisplayFor(modelItem => Model.Deskripsi)</td>
     </tr>
 </table>
-<form asp-controller="TourAndTravel" asp-action="DeleteConfirmed" asp-route-id="@Model.Id">
+<form asp-controller="Admin" asp-action="DeleteConfirmed" asp-route-id="@Model.Id">
       <button  class="btn btn-danger" type="submit">Yes</button>
-      <a class="btn btn-primary" asp-controller="TourAndTravel" asp-action="Tempat">Back</a>
+      <a class="btn btn-primary" asp-controller="Admin" asp-action="CekUpdate">Back</a>
 </form>

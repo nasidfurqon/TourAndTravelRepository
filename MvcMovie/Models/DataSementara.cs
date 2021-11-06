@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcMovie.Models
 {
-    public class Destination
+    public class DataSementara
     {
         public int Id { get; set; }
         [RegularExpression(@"^[0-9]*$")]

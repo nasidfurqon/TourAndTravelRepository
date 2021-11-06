@@ -1,8 +1,90 @@
 ﻿@{
+
     ViewData["Title"] = "Home Page";
 }
+<style>
+h2{
+ font-weight: 800;
+ font-family:'Zen Kurenaido', sans-serif;;
+color: #00C1D4;
+font-size: 45px;
+width: 100%;
+line-height: 50px;
+text-align: center;
+-webkit-text-stroke: 0.05em #000;
+}
+h5{
+ font-weight: 800;
+width: 100%;
+color:#00C1D4;
+margin-bottom: 0px;
+-webkit-text-stroke: 0.07em #000;
+text-align: center;
+}
+body {
+  background-image: url("https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.search {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 500px;
+  transform: translate(-50%,-50%);
+}
+input {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  box-sizing: border-box;
+  transition: .5s;
+}
+input[type="text"]
+{
+  background: white;
+  width: 380px;
+  height: 40px;
+  border: none;
+  outline: none;
+  padding: 0 25px;
+  border-radius: 25px 0 0 25px;
+}
+input[type="submit"]
+{
+  position: relative;
+  background: white;
+  width: 110px;
+  height: 40px;
+  border: none;
+  outline: none;
+  padding: 0 25px;
+  cursor: pointer;
+  border-radius:0 25px 25px 0;
+  background: #09009B;
+  color: white;
+}
+input[type="submit"]:hover{
+  background : #F0A500;
+}
+u {
+  color: #F0A500;
+}
+.header {
+  padding: 100px;
+  margin-bottom: -15px;
+}
+</style>
+<form asp-controller="TourAndTravel" asp-action="Tempat" method="get">
+    <div class="search">
+        <input type="text" name="SearchString" placeholder="Cari Tempat Wisata"/>
+        <input type="submit" value="Search" />
+    </div>
+</form>
+<body>
+<link rel="stylesheet" href="D:\projects\ProyekWebMVC\MvcMovie\wwwroot\css\site.css">
+<h2 class="header" >Selamat Datang!!</h2>
+<h2 style="font-family: 'Zen Kurenaido', sans-serif;">di website <u>TourAndTravel.com</u></h2>
+<h5  style="font-family: 'Zen Kurenaido', sans-serif;">silahkan cek daftar tempat pariwisata di Kota Pati dan sekitarnya </h5>
+</body>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>

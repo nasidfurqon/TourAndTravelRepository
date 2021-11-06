@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Transaction>
+@{
+    ViewData["Title"] = "Tempat Wisata";
+}
+<style>
+    .styleLink{ 
+      background: black;
+      border-radius: 20px;
+      margin-top: 20px;
+      padding : 15px 20px 15px 20px;
+      color: white;
+      margin-bottom: 50px;
+      }
+      h4{
+ font-family:'comic sans-ms';
+color: #0F3460;
+      }
+      body{
+  background-color: #D1E8E4;
+}
+</style>
+<body>
+    
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">User Name</th>
+                <th scope="col">Destination Id</th>
+                <th scope="col">Date </th>
+                <th scope="col">Price</th>
+            </tr>
+            </thead>
+    @foreach (var item in Model)
+    {
+            <tbody>
+            <tr>
+                <td>@item.UserName</td>
+                <td>@item.DestinationID</td>    
+                <td>@item.Date</td>
+                <td>@item.Price</td>
+            </tr>
+            </tbody>
+    }
+        </table>
+</body>

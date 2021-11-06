@@ -1,0 +1,35 @@
+@{
+
+    ViewData["Title"] = "Hai Admin";
+}
+<style>
+    h2{
+ font-weight: 800;
+ font-family:'Zen Kurenaido', sans-serif;;
+color: #082032;
+font-size: 45px;
+width: 100%;
+line-height: 50px;
+text-align: center;
+padding : 15px 20px 15px 20px;
+}
+.styleLink{ 
+      background: black;
+      border-radius: 20px;
+      margin-top: 20px;
+      padding : 15px 20px 15px 20px;
+      color: white;
+      margin-bottom: 50px;
+      }
+      .Navigasi {
+          padding: 50px;
+          text-align: center;
+      }
+</style>
+<h2>Hai Admin!!!</h2>
+<div class="Navigasi">
+<a class="styleLink"  asp-controller="Admin" asp-action="User">Cek User</a>
+<a class="styleLink"  asp-controller="Admin" asp-action="Tempat">Cek Daftar Tempat Wisata</a>
+<a class="styleLink"  asp-controller="Admin" asp-action="StatusPembelian">Cek Pembelian</a>
+<a class="styleLink"  asp-controller="Admin" asp-action="CekUpdate">Pembaruan Dari User</a>
+</div>
