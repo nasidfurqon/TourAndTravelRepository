@@ -35,15 +35,15 @@ namespace MvcMovie.Controllers
         }
         public async Task<IActionResult> Tempat(string searchString)
         {
-            var movies = from m in _context.Destinations
+            var tempat = from m in _context.Destinations
             select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                movies = movies.Where(s => s.Place.Contains(searchString));
+                tempat = tempat.Where(s => s.Place.Contains(searchString));
             }
-            movies=movies.Where(s =>s.Verify=="iya");
-            return View(await movies.ToListAsync());
+            tempat=tempat.Where(s =>s.Verify=="iya");
+            return View(await tempat.ToListAsync());
         }
 
         // POST: Movies/Create
@@ -62,18 +62,18 @@ namespace MvcMovie.Controllers
        
         public IActionResult Edit(int? id)
         {
-            var movie=_context.Destinations.Find(id);
+            var tempat=_context.Destinations.Find(id);
              if (id == null)
                 {
                     return NotFound();
                 }
-            if (movie==null)
+            if (tempat==null)
             {
 
                 return NotFound();
             }
 
-            return View(movie);
+            return View(tempat);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -93,7 +93,7 @@ namespace MvcMovie.Controllers
                     }
                     catch (DbUpdateConcurrencyException)
                     {
-                        if (!MovieExists(destination.Id))
+                        if (!ListExists(destination.Id))
                         {
                             return NotFound();
                         }
@@ -106,10 +106,10 @@ namespace MvcMovie.Controllers
                 }
                 return View(destination);
             }
-        private bool MovieExists(int id)
+        private bool ListExists(int id)
         {
-            var movie =_context.Destinations.Find(id);
-            return movie!=null;
+            var tempat =_context.Destinations.Find(id);
+            return tempat!=null;
         }
         public  IActionResult Delete(int? id)
         {
@@ -118,19 +118,19 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie =_context.Destinations.Find(id);
-            if (movie ==null)
+            var tempat =_context.Destinations.Find(id);
+            if (tempat ==null)
             {
                 return NotFound();
             }
-            return View(movie);
+            return View(tempat);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var movie = await _context.Destinations.FindAsync(id);
-            _context.Destinations.Remove(movie);
+            var tempat = await _context.Destinations.FindAsync(id);
+            _context.Destinations.Remove(tempat);
             await _context.SaveChangesAsync();
             return RedirectToAction("Tempat");
         }

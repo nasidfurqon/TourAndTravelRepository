@@ -24,10 +24,7 @@ namespace MvcMovie.Controllers
             _userManager = userManager;
         }
         MvcMovieDbContext _context;
-         public IActionResult Contact()
-        {
-            return View(_context.Contacts.ToList());
-        }
+        
         public IActionResult Category()
         {
             return View(_context.Categories.ToList());

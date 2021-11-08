@@ -31,7 +31,6 @@ line-height: 50px;
                 <option value="9">Taman  Oasis</option>
             </select>
             </div>
-            <div id="txtHint">Price info will be listed here...</div>
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
                 <input asp-for="UserName" class="form-control" />
@@ -54,20 +53,7 @@ line-height: 50px;
     </div>
 </div>
 
-<script>
-function showCustomer(str) {
-  if (str == "") {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  }
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    document.getElementById("txtHint").innerHTML = this.responseText;
-  }
-  xhttp.open("GET", "getPrice.php?q="+str);
-  xhttp.send();
-}
-</script>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

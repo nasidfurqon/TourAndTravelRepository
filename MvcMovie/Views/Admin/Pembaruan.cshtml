@@ -26,7 +26,9 @@ color: #0F3460;
             <tr>
                 <th scope="col">Tempat Wisata</th>
                 <th scope="col">Kota </th>
-                <th scope="col">Keterangan </th>
+                <th scope="col">Place</th>
+                <th scope="col">Price</th>
+                <th scope="col">Deskripsi</th>
             </tr>
             </thead>
     @foreach (var item in Model)
@@ -35,11 +37,12 @@ color: #0F3460;
             <tr>
                 <td>@item.Place</td>    
                 <td>@item.Kota</td>
-                <td><a asp-controller="TourAndTravel" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-controller="TourAndTravel" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                <td>@item.Place</td>
+                <td>@item.Price</td>
+                <td>@item.Deskripsi</td>
+                <td><a asp-controller="Admin" asp-action="Konfirmasi" asp-route-id="@item.Id">Add to List</a> |
             </tr>
             </tbody>
     }
         </table>
-<a class="styleLink"  asp-controller="TourAndTravel" asp-action="CreateDeskripsi">Buat Tempat Wisata</a>
 </body>
