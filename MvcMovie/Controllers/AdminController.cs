@@ -33,7 +33,7 @@ namespace MvcMovie.Controllers
         {
             var tempat = from m in _context.Destinations
             select m;
-            tempat=tempat.Where(s =>s.Verify=="iya");
+            tempat=tempat.Where(s =>s.Verify==true);
             return View(tempat.ToList());
         }
         public IActionResult StatusPembelian()
@@ -95,7 +95,7 @@ namespace MvcMovie.Controllers
         {
             var tempat = from m in _context.Destinations
             select m;
-            tempat=tempat.Where(s =>s.Verify==null);
+            tempat=tempat.Where(s =>s.Verify==false);
             return View(tempat.ToList());
         }
         [HttpPost]

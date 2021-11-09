@@ -83,39 +83,6 @@ namespace MvcMovie.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Contacts",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    NumbePhone = table.Column<double>(type: "double", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Contacts", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Tempats",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Kota = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    NamaTempat = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tempats", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -256,8 +223,7 @@ namespace MvcMovie.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Kota = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Verify = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                    Verify = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -306,17 +272,17 @@ namespace MvcMovie.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "bce7bb00-2e01-4535-bef2-8a4da1d96ce4", "c3874857-9a69-454a-9bfd-32e8ffb328b1", "Admin", null });
+                values: new object[] { "f838fe31-2120-4793-9ba4-44efa25c73ad", "22276da2-05f1-4b09-95db-64d3e44b28de", "Admin", null });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "bf43bd7f-5638-41ee-aa90-2abc65be829c", "a7723d84-8823-4aa6-831a-89e966314958", "User", null });
+                values: new object[] { "e4b10b31-8641-42c4-85ef-eb7a6972c77c", "3c49386c-345a-4ef5-8256-a2ad8abb581d", "User", null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Avatar", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3b2907be-79c3-41a3-8759-ee45a8cf54ba", 0, null, "35ba1cfa-f3f0-451e-b789-96be349a6fec", "admin@admin.com", true, false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEPzwdvVpZ7Q/yZiXMWxN48wjEktAN4OmOcADVtl3n4ysnUEOsZZOJL2ShEmWLxYahA==", null, false, "9b36369d-6b5b-482a-9942-256909801421", false, "admin@admin.com" });
+                values: new object[] { "162380ed-ecdb-4152-a7bc-7dc788e2cef2", 0, null, "cf2c7859-9a27-4519-a670-197bea8aa418", "admin@admin.com", true, false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEHJV07Ilo7kmQw3Bjk4K3wh+5CUAsj+xic/LqlI/7FJ/kamdb3LN2WxOiw5bUrP+lg==", null, false, "abb01010-2878-4402-8ac1-83cfe7a85c98", false, "admin@admin.com" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -387,12 +353,6 @@ namespace MvcMovie.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Contacts");
-
-            migrationBuilder.DropTable(
-                name: "Tempats");
 
             migrationBuilder.DropTable(
                 name: "Transactions");

@@ -45,14 +45,14 @@ namespace MvcMovie.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e68144ee-f1d2-49a9-8823-5347beb38e19",
-                            ConcurrencyStamp = "e5bac354-6c79-4329-9c60-1cae40028cc5",
+                            Id = "f838fe31-2120-4793-9ba4-44efa25c73ad",
+                            ConcurrencyStamp = "22276da2-05f1-4b09-95db-64d3e44b28de",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "e989089d-c7ef-4ed8-a919-79543b7f1190",
-                            ConcurrencyStamp = "783c0e52-8272-4901-ad3a-eaf11a506848",
+                            Id = "e4b10b31-8641-42c4-85ef-eb7a6972c77c",
+                            ConcurrencyStamp = "3c49386c-345a-4ef5-8256-a2ad8abb581d",
                             Name = "User"
                         });
                 });
@@ -246,17 +246,17 @@ namespace MvcMovie.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9b2309fe-9ed3-46de-bd44-4fe3e300ba2c",
+                            Id = "162380ed-ecdb-4152-a7bc-7dc788e2cef2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "458e1561-77ab-4917-8ba4-da4ce445b587",
+                            ConcurrencyStamp = "cf2c7859-9a27-4519-a670-197bea8aa418",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELGn8nk2fM8o7lkc30Ojg3c5Q4GSTuAVnTdmLWtqF6DTKN8uHfm6aF5h5S2ioMp1Aw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHJV07Ilo7kmQw3Bjk4K3wh+5CUAsj+xic/LqlI/7FJ/kamdb3LN2WxOiw5bUrP+lg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f73d4207-86d8-4a39-9d79-3bb7185d8b33",
+                            SecurityStamp = "abb01010-2878-4402-8ac1-83cfe7a85c98",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });
@@ -288,35 +288,14 @@ namespace MvcMovie.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Verify")
-                        .HasColumnType("longtext");
+                    b.Property<bool>("Verify")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Destinations");
-                });
-
-            modelBuilder.Entity("MvcMovie.Models.Tempat", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Kota")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("varchar(15)");
-
-                    b.Property<string>("NamaTempat")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tempats");
                 });
 
             modelBuilder.Entity("MvcMovie.Models.Transaction", b =>

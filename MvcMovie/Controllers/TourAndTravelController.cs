@@ -42,7 +42,7 @@ namespace MvcMovie.Controllers
             {
                 tempat = tempat.Where(s => s.Place.Contains(searchString));
             }
-            tempat=tempat.Where(s =>s.Verify=="iya");
+            tempat=tempat.Where(s =>s.Verify==true);
             return View(await tempat.ToListAsync());
         }
 
@@ -143,7 +143,7 @@ namespace MvcMovie.Controllers
        public IActionResult Verified (int id)
         {
             var Verified =_context.Destinations.Find(id);
-            Verified.Verify="iya";
+            Verified.Verify=true;
             _context.Destinations.Add(Verified);
             _context.SaveChanges();
             return RedirectToAction("Tempat");

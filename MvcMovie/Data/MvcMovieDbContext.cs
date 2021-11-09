@@ -14,7 +14,6 @@ namespace MvcMovie.Data
     public DbSet<Category> Categories { get; set; }
     public DbSet<Destination> Destinations { get; set; }
     public DbSet<Transaction> Transactions { get; set; }
-    public DbSet<Tempat> Tempats { get; set; }
    
 
 
