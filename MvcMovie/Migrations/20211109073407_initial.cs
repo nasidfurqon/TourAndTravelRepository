@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MvcMovie.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -272,17 +272,17 @@ namespace MvcMovie.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "f838fe31-2120-4793-9ba4-44efa25c73ad", "22276da2-05f1-4b09-95db-64d3e44b28de", "Admin", null });
+                values: new object[] { "f703fdbf-e1c2-4284-b487-9e5a6763a06e", "2f1a04ae-e0d0-42ab-8106-8a660a4254cb", "Admin", null });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "e4b10b31-8641-42c4-85ef-eb7a6972c77c", "3c49386c-345a-4ef5-8256-a2ad8abb581d", "User", null });
+                values: new object[] { "6d9e62a5-0e2e-4e09-8636-47800efc495b", "db7af150-78f4-4d44-81a0-269da6b0fbd3", "User", null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Avatar", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "162380ed-ecdb-4152-a7bc-7dc788e2cef2", 0, null, "cf2c7859-9a27-4519-a670-197bea8aa418", "admin@admin.com", true, false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEHJV07Ilo7kmQw3Bjk4K3wh+5CUAsj+xic/LqlI/7FJ/kamdb3LN2WxOiw5bUrP+lg==", null, false, "abb01010-2878-4402-8ac1-83cfe7a85c98", false, "admin@admin.com" });
+                values: new object[] { "76247bb6-12f6-44db-8de1-edd65ee88c30", 0, null, "943746d5-1070-431b-a377-5b602b02ac0d", "admin@admin.com", true, false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEId5mzrdYkVgaMH9by837LkouXrrtf1/aomCsoZ0h//4CrN6vPny4qYit7WD3Dkh3g==", null, false, "0d8d1449-0a10-40e6-8f2b-8c547071f13c", false, "admin@admin.com" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

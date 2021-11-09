@@ -15,7 +15,7 @@ line-height: 50px;
 <h2 style="font-family: 'PT Mono', monospace;">lengkapi data dibawah untuk membeli tiket</h2>
 <div class="row">
     <div class="col-md-4">
- <form asp-action="Transaksi">
+ <form asp-action="Index">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
             <div class="form-group">
                 <label asp-for="DestinationID" class="control-label"></label>
@@ -43,8 +43,17 @@ line-height: 50px;
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+                <select asp-for="Price" class="form-control" onchange="showCustomer(this.value)">
+                <option value =15000>15000 - Wisata Agro Jollong Pati </option>
+                <option value = 3000>3000 - Wisata Gunung Rowo</option>
+                <option value = 5000 >5000 - Bukit Pandang</option>
+                <option value = 3000>3000 - Lorodan Semar</option>
+                <option value = 7500>7500 - Air Terjun Montel Kudus</option>
+                <option value = 5000 >5000 - Air Terjun Songgo Langit</option>
+                <option value = 5000 >5000 - Pantai Karang Jahe Rembang</option>
+                <option value = 5000 >5000 - Pantai Wates</option>
+                <option value = 5000>5000 - Taman  Oasis</option>
+            </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Beli" class="btn btn-primary" />

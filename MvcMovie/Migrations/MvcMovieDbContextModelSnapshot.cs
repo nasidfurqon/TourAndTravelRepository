@@ -45,14 +45,14 @@ namespace MvcMovie.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f838fe31-2120-4793-9ba4-44efa25c73ad",
-                            ConcurrencyStamp = "22276da2-05f1-4b09-95db-64d3e44b28de",
+                            Id = "f703fdbf-e1c2-4284-b487-9e5a6763a06e",
+                            ConcurrencyStamp = "2f1a04ae-e0d0-42ab-8106-8a660a4254cb",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "e4b10b31-8641-42c4-85ef-eb7a6972c77c",
-                            ConcurrencyStamp = "3c49386c-345a-4ef5-8256-a2ad8abb581d",
+                            Id = "6d9e62a5-0e2e-4e09-8636-47800efc495b",
+                            ConcurrencyStamp = "db7af150-78f4-4d44-81a0-269da6b0fbd3",
                             Name = "User"
                         });
                 });
@@ -246,17 +246,17 @@ namespace MvcMovie.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "162380ed-ecdb-4152-a7bc-7dc788e2cef2",
+                            Id = "76247bb6-12f6-44db-8de1-edd65ee88c30",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cf2c7859-9a27-4519-a670-197bea8aa418",
+                            ConcurrencyStamp = "943746d5-1070-431b-a377-5b602b02ac0d",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHJV07Ilo7kmQw3Bjk4K3wh+5CUAsj+xic/LqlI/7FJ/kamdb3LN2WxOiw5bUrP+lg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEId5mzrdYkVgaMH9by837LkouXrrtf1/aomCsoZ0h//4CrN6vPny4qYit7WD3Dkh3g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "abb01010-2878-4402-8ac1-83cfe7a85c98",
+                            SecurityStamp = "0d8d1449-0a10-40e6-8f2b-8c547071f13c",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });

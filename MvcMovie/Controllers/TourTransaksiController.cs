@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MvcMovie.Data;
 using MvcMovie.Models;
@@ -15,9 +16,9 @@ namespace MvcMovie.Controllers
     [Authorize]
     public class TourTransaksiController : Controller
     {
-        private readonly ILogger<TourItemController> _logger;
+        private readonly ILogger<TourTransaksiController> _logger;
         private UserManager<Customers> _userManager;
-        public TourTransaksiController(ILogger<TourItemController> logger, MvcMovieDbContext context, UserManager<Customers> userManager)
+        public TourTransaksiController(ILogger<TourTransaksiController> logger, MvcMovieDbContext context, UserManager<Customers> userManager)
         {
             _logger = logger;
             _context = context;
@@ -27,7 +28,7 @@ namespace MvcMovie.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index([Bind("Id,DestinationID,CustomersId,Date,Price,UserName")] Transaction transaction)
+        public async Task<IActionResult> Index([Bind("Id,DestinationID,Date,Price,UserName")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -41,6 +42,7 @@ namespace MvcMovie.Controllers
         {
             return View();
         }
+        
         public IActionResult TransaksiBerhasil()
         {
             return View();
