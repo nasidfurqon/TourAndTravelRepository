@@ -1,0 +1,51 @@
+@model MvcMovie.Models.TransaksiViewModel
+@{
+    ViewData["Title"] = "Transaksi";
+}
+<style>
+    h2{
+ font-weight: 800;
+ font-family:'comic sans-ms';
+color: #0F3460;
+font-size: 45px;
+width: 100%;
+line-height: 50px;
+}
+</style>
+<h2 style="font-family: 'PT Mono', monospace;">lengkapi data dibawah untuk membeli tiket</h2>
+<div class="row">
+    <div class="col-md-4">
+ <form asp-action="Transaksi">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
+            <div class="form-group">
+                <label asp-for="Transaksi.DestinationID" class="control-label"></label>
+                <select asp-for="Transaksi.DestinationID" class="form-control" asp-items="Model.Places">
+            </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transaksi.UserName" class="control-label"></label>
+                <input asp-for="Transaksi.UserName" class="form-control" />
+                <span asp-validation-for="Transaksi.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transaksi.Date" class="control-label"></label>
+                <input asp-for="Transaksi.Date" class="form-control" />
+                <span asp-validation-for="Transaksi.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transaksi.Price" class="control-label"></label>
+                <select asp-for="Transaksi.Price" class="form-control" asp-items="Model.Prices">
+                </select>
+               
+            </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Beli" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

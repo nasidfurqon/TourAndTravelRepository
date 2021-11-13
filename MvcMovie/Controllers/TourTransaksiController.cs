@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MvcMovie.Data;
@@ -13,7 +14,8 @@ using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="User")]
+
     public class TourTransaksiController : Controller
     {
         private readonly ILogger<TourTransaksiController> _logger;
@@ -28,7 +30,7 @@ namespace MvcMovie.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index([Bind("Id,DestinationID,Date,Price,UserName")] Transaction transaction)
+        public async Task<IActionResult> Transaksi([Bind(Prefix = "Transaksi")]Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -36,13 +38,39 @@ namespace MvcMovie.Controllers
                 await _context.SaveChangesAsync();
                  return RedirectToAction("TransaksiBerhasil");
             }
-            return View(transaction);
+            
+            var destination = from m in _context.Destinations
+            select m;
+            destination=destination.Where(s =>s.Verify==true);
+
+            IQueryable<Destination> DestinasiQuery = from m in destination
+            select m;
+
+            var destinasiPlaceVM = new TransaksiViewModel
+            {
+                Places = new SelectList(DestinasiQuery,"Id","Place"),
+                Prices =new SelectList(DestinasiQuery,"Price","Price")
+            };
+
+            return View(destinasiPlaceVM);
         }
-        public IActionResult Index()
+        public IActionResult Transaksi()
         {
-            return View();
+            var destination = from m in _context.Destinations
+            select m;
+            destination=destination.Where(s =>s.Verify==true);
+
+            IQueryable<Destination> DestinasiQuery = from m in destination
+            select m;
+
+            var destinasiPlaceVM = new TransaksiViewModel
+            {
+                Places = new SelectList(DestinasiQuery,"Id","Place"),
+                Prices =new SelectList(DestinasiQuery,"Price","Price")
+            };
+
+            return View(destinasiPlaceVM);
         }
-        
         public IActionResult TransaksiBerhasil()
         {
             return View();

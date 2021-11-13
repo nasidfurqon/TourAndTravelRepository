@@ -17,7 +17,7 @@ namespace MvcMovie.Models
         public string Place{get;set;}
         [Range(1, 100000), DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
-        public decimal Price{get;set;}
+        public double Price{get;set;}
         [Required]
         public string Deskripsi {get;set;}
         [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
