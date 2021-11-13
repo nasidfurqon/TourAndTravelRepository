@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MvcMovie.Data;
@@ -98,9 +99,27 @@ namespace MvcMovie.Controllers
             tempat=tempat.Where(s =>s.Verify==false);
             return View(tempat.ToList());
         }
+        public IActionResult Create()
+        {
+            var kategori = from m in _context.Categories
+            select m;
+
+            IQueryable<Category> NameQuery = from m in _context.Categories
+            select m;
+            
+            IQueryable<int> IdQuery = from m in _context.Categories
+            select m.Id;
+
+            var destinasiPlaceVM = new CreateViewModel
+            {
+                Names = new SelectList(NameQuery.Distinct().ToList(),"Id","Name")
+            };
+            return View(destinasiPlaceVM);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CategoryId,Place,Kota,Price,Deskripsi,Verify")] Destination destination)
+        public async Task<IActionResult> Create([Bind(Prefix ="Destinasi")] Destination destination)
         {
             if (ModelState.IsValid)
             {
@@ -108,11 +127,14 @@ namespace MvcMovie.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Tempat");
             }
-            return View(destination);
-        }
-        public IActionResult Create()
-        {
-            return View();
+            IQueryable<Category> NameQuery = from m in _context.Categories
+            select m;
+            var destinasi = new CreateViewModel
+            {
+                Names = new SelectList(NameQuery.Distinct().ToList(),"Id","Name"),
+                Destinasi = destination
+            };
+            return View(destinasi);
         }
     }
 }

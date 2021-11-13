@@ -29,10 +29,7 @@ namespace MvcMovie.Controllers
         MvcMovieDbContext _context;  
         // POST: Movies/Create
         [Authorize]
-        public IActionResult CreateDeskripsi()
-        {
-            return View();
-        }
+       
         public async Task<IActionResult> Tempat(string searchString)
         {
             var tempat = from m in _context.Destinations
@@ -46,10 +43,27 @@ namespace MvcMovie.Controllers
             return View(await tempat.ToListAsync());
         }
 
-        // POST: Movies/Create
+       public IActionResult CreateDeskripsi()
+        {
+            var kategori = from m in _context.Categories
+            select m;
+
+            IQueryable<Category> NameQuery = from m in _context.Categories
+            select m;
+            
+            IQueryable<int> IdQuery = from m in _context.Categories
+            select m.Id;
+
+            var destinasiPlaceVM = new CreateViewModel
+            {
+                Names = new SelectList(NameQuery.Distinct().ToList(),"Id","Name")
+            };
+            return View(destinasiPlaceVM);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateDeskripsi([Bind("Id,CategoryId,Place,Kota,Price,Deskripsi")] Destination destination)
+        public async Task<IActionResult> CreateDeskripsi([Bind(Prefix ="Destinasi")] Destination destination)
         {
             if (ModelState.IsValid)
             {
@@ -57,8 +71,16 @@ namespace MvcMovie.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("UcapanBerhasil");
             }
-            return View(destination);
+            IQueryable<Category> NameQuery = from m in _context.Categories
+            select m;
+            var destinasi = new CreateViewModel
+            {
+                Names = new SelectList(NameQuery.Distinct().ToList(),"Id","Name"),
+                Destinasi = destination
+            };
+            return View(destinasi);
         }
+        
        
         public IActionResult Edit(int? id)
         {
