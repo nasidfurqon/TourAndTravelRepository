@@ -136,5 +136,52 @@ namespace MvcMovie.Controllers
             };
             return View(destinasi);
         }
+        public  IActionResult Delete(int? id)
+        {
+            if( id == null)
+            {
+                return NotFound();
+            }
+
+            var tempat =_context.Destinations.Find(id);
+            if (tempat ==null)
+            {
+                return NotFound();
+            }
+            return View(tempat);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var tempat = await _context.Destinations.FindAsync(id);
+            _context.Destinations.Remove(tempat);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Tempat");
+        }
+        public  IActionResult DeleteRequest(int? id)
+        {
+            if( id == null)
+            {
+                return NotFound();
+            }
+
+            var tempat =_context.Destinations.Find(id);
+            if (tempat ==null)
+            {
+                return NotFound();
+            }
+            return View(tempat);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ConfirmedDelete(int id)
+        {
+            var tempat = await _context.Destinations.FindAsync(id);
+            _context.Destinations.Remove(tempat);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Pembaruan");
+        }
     }
 }
