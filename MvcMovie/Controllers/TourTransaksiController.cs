@@ -34,6 +34,9 @@ namespace MvcMovie.Controllers
         {
             if (ModelState.IsValid)
             {
+                var destinationId = transaction.DestinationID;
+                var destinasi = _context.Destinations.Find(destinationId);
+                transaction.Price=destinasi.Price;
                 _context.Transactions.Add(transaction);
                 await _context.SaveChangesAsync();
                  return RedirectToAction("TransaksiBerhasil");
@@ -48,7 +51,7 @@ namespace MvcMovie.Controllers
 
             var destinasiPlaceVM = new TransaksiViewModel
             {
-                Places = new SelectList(DestinasiQuery,"Id","Place"),
+                Places = new SelectList(DestinasiQuery.Select(x=>new {x.Id, Place=$"{x.Place} - Rp. {x.Price}"}),"Id","Place"),
                 Prices =new SelectList(DestinasiQuery,"Price","Price")
             };
 
@@ -65,7 +68,7 @@ namespace MvcMovie.Controllers
 
             var destinasiPlaceVM = new TransaksiViewModel
             {
-                Places = new SelectList(DestinasiQuery,"Id","Place"),
+                Places = new SelectList(DestinasiQuery.Select(x=>new {x.Id, Place=$"{x.Place} - Rp. {x.Price}"}),"Id","Place"),
                 Prices =new SelectList(DestinasiQuery,"Price","Price")
             };
 

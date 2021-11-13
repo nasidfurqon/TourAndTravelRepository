@@ -183,5 +183,79 @@ namespace MvcMovie.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Pembaruan");
         }
+        public  IActionResult Detail(int? id)
+        {
+            if( id == null)
+            {
+                return NotFound();
+            }
+
+            var tempat =_context.Destinations.Find(id);
+            if (tempat ==null)
+            {
+                return NotFound();
+            }
+            return View(tempat);
+        }
+        public  IActionResult DetailTempat(int? id)
+        {
+            if( id == null)
+            {
+                return NotFound();
+            }
+
+            var tempat =_context.Destinations.Find(id);
+            if (tempat ==null)
+            {
+                return NotFound();
+            }
+            return View(tempat);
+        }
+        public IActionResult Edit(int? id)
+        {
+            var tempat=_context.Destinations.Find(id);
+             if (id == null)
+                {
+                    return NotFound();
+                }
+            if (tempat==null)
+            {
+
+                return NotFound();
+            }
+
+            return View(tempat);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryId,Place,Kota,Price,Deskripsi,Verify")] Destination destination)
+            {
+                if (id != destination.Id)
+                {
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        _context.Update(destination);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!ListExists(destination.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction("Tempat");
+                }
+                return View(destination);
+            }
     }
 }

@@ -40,14 +40,12 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-danger" asp-controller="admin" asp-action="Pembaruan">Back</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Pembaruan">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

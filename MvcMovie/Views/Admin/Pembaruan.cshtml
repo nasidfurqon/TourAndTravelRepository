@@ -18,6 +18,17 @@ color: #0F3460;
       body{
   background-color: #D1E8E4;
 }
+.styleLink{ 
+      background: #2F86A6;
+      border-radius: 20px;
+      margin-top: 20px;
+      padding : 15px 20px 15px 20px;
+      color: white;
+      margin-bottom: 50px;
+      }
+.styleLink:hover{ 
+      color: black;
+      }
 </style>
 <body>
     
@@ -28,7 +39,6 @@ color: #0F3460;
                 <th scope="col">Kota </th>
                 <th scope="col">Place</th>
                 <th scope="col">Price</th>
-                <th scope="col">Deskripsi</th>
             </tr>
             </thead>
     @foreach (var item in Model)
@@ -39,10 +49,12 @@ color: #0F3460;
                 <td>@item.Kota</td>
                 <td>@item.Place</td>
                 <td>@item.Price</td>
-                <td>@item.Deskripsi</td>
-                <td><a asp-controller="Admin" asp-action="Konfirmasi" asp-route-id="@item.Id">Add to List</a> |
+                <td><a asp-controller="Admin" asp-action="Detail" asp-route-id="@item.Id">Details</a> |
+                    <a asp-controller="Admin" asp-action="Konfirmasi" asp-route-id="@item.Id">Add to List</a> |
+                <a asp-controller="Admin" asp-action="DeleteRequest" asp-route-id="@item.Id">Delete</a> </td>
             </tr>
             </tbody>
     }
         </table>
+    <a class="styleLink"  asp-controller="Admin" asp-action="Index">Kembali ke Halaman Utama</a>
 </body>

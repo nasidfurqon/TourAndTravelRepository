@@ -3,10 +3,15 @@
     ViewData["Title"] = "Hai Admin";
 }
 <style>
+    section{
+  margin: auto;
+  display: flex;
+    margin-bottom: 50px;
+}
     h2{
  font-weight: 800;
  font-family:'Zen Kurenaido', sans-serif;;
-color: #082032;
+color: #2F86A6;
 font-size: 45px;
 width: 100%;
 line-height: 50px;
@@ -14,21 +19,34 @@ text-align: center;
 padding : 15px 20px 15px 20px;
 }
 .styleLink{ 
-      background: black;
+      background: #2F86A6;
       border-radius: 20px;
       margin-top: 20px;
       padding : 15px 20px 15px 20px;
       color: white;
       margin-bottom: 50px;
       }
+.styleLink:hover{ 
+      color: black;
+      }
       .Navigasi {
+          padding: 150px;
+      }
+      .Navigasi2 {
           padding: 50px;
-          text-align: center;
       }
 </style>
-<h2>Hai Admin!!!</h2>
-<div class="Navigasi">
-<a class="styleLink"  asp-controller="Admin" asp-action="Tempat">Cek Daftar Tempat Wisata</a>
-<a class="styleLink"  asp-controller="Admin" asp-action="StatusPembelian">Cek Pembelian</a>
-<a class="styleLink"  asp-controller="Admin" asp-action="Pembaruan">Pembaruan Dari User</a>
-</div>
+    <h2>Hai Admin!!!</h2>
+<section>
+    <div>
+    <img src="https://img.freepik.com/free-vector/male-businessman-character-sitting-office-workplace-computer-monitor-desk_80328-218.jpg?size=626&ext=jpg"
+    alt="VektorAdmin" width="450px">
+    </div>
+    <div class="Navigasi">
+        <a class="styleLink"  asp-controller="Admin" asp-action="Tempat">Cek Daftar Tempat Wisata</a>
+    </dixv>
+    <div class="Navigasi2">
+        <a class="styleLink"  asp-controller="Admin" asp-action="StatusPembelian">Cek Pembelian</a>
+    </div>
+        <a class="styleLink"  asp-controller="Admin" asp-action="Pembaruan">Pembaruan Dari User</a>
+</section>

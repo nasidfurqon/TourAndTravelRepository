@@ -33,10 +33,5 @@ namespace MvcMovie.Controllers
             return File(fileBytes, contentType ?? "application/octet-stream");
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
-        }
     }
 }

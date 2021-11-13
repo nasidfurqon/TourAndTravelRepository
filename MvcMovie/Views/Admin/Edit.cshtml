@@ -33,15 +33,17 @@
                 <input asp-for="Deskripsi" class="form-control" />
                 <span asp-validation-for="Deskripsi" class="text-danger"></span>
             </div>
+             <div class="form-group">
+                <label asp-for="Verify" class="control-label"></label>
+                <input asp-for="Verify" class="form-control" />
+                <span asp-validation-for="Verify" class="text-danger"></span>
+            </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-danger" />
+                <a class="btn btn-primary" asp-controller="admin" asp-action="Tempat">Back</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Tempat">Back to List</a>
 </div>
 
 @section Scripts {
